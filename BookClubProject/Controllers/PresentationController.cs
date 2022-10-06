@@ -28,6 +28,11 @@ namespace BookClubProject.Controllers
         public IActionResult Add(Presentation pres)
         {
             bool isValid = true;
+            if(pres.PresentationDate.ToString() == "1/1/0001 12:00:00 AM")
+            {
+                ViewBag.DateMessage = "Please choose a date.";
+                isValid = false;
+            }
             if (pres.BookTitle == null)
             {
                 ViewBag.TitleMessage = "Title is required.";

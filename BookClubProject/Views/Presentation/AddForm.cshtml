@@ -13,11 +13,15 @@
             <option value="@per.id">@per.FirstName @per.LastName</option>
         }
     </select> <br/>
-    Date: <input type="date" name="presentationdate" value="@ViewBag.PresentationDate" /> <br/>
+    Date: <input type="date" name="presentationdate" value="@ViewBag.PresentationDate" /> 
+    <span style="font-weight:bold;color:red;">@ViewBag.DateMessage</span><br/><br/>
    
-    Book Title: <input type="text" name="booktitle" value="@ViewBag.BookTitle"/> <br/>
+    Book Title: <input type="text" name="booktitle" value="@ViewBag.BookTitle"/> 
+    <span style="font-weight:bold;color:red;">@ViewBag.TitleMessage</span><br/><br/>
    
-    Book Author:<input type="text" name="bookauthor" value="@ViewBag.BookAuthor" /> <br/>
-    Genre:<input type="text" name="genre" value="@ViewBag.Genre" /> <br/>
+    Book Author:<input type="text" name="bookauthor" value="@ViewBag.BookAuthor" /> 
+    <span style="font-weight:bold;color:red;">@ViewBag.AuthorMessage</span><br/><br/>
+    Genre:<input type="text" name="genre" value="@ViewBag.Genre" /> 
+    <span style="font-weight:bold;color:red;">@ViewBag.GenreMessage</span><br/><br/>
     <input type="submit" value="Save" />
 </form>
