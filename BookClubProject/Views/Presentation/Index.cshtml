@@ -1,0 +1,26 @@
+﻿@model List<Presentation>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Presentations</h1>
+
+<table>
+    <thead>
+        <th>Date(mm-dd-yy)</th>
+        <th>Book Title</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        @foreach (Presentation pres in Model)
+        {
+            <tr>
+                <td>@pres.PresentationDate.ToString("MM-dd-yyy")</td>
+                <td>@pres.BookTitle</td>
+                <td><a href="/presentation/detail/@pres.id">Detail</a></td>
+                <td><a href="/presentation/editform/@pres.id">Edit</a></td>
+                <td><a href="/presentation/delete/@pres.id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

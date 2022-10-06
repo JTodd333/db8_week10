@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "AddForm";
+}
+
+
+@{
+    ViewData["Title"] = "AddForm";
+}
+
+<h1>Add New Employee</h1>
+
+<form method="post" action="/employee/add"> 
+    First Name: <input type="text" name="firstname" /><br />
+    Last Name: <input type="text" name="lastname" /><br />
+    Phone: <input type="text" name="phone" /><br />
+    Email: <input type="text" name="email" /><br />
+    Department: <input type="text" name="department" /><br />
+    Hire Date: <input type="date" name="hiredate" />
+    <span style="color:red;">@ViewBag.HireDateMessage</span>
+    <br />
+    <input type="submit" value="save" />
+</form>
+

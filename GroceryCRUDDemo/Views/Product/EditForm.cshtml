@@ -1,0 +1,34 @@
+﻿@model Product;
+@{
+    ViewData["Title"] = "EditForm";
+}
+
+<h1>Edit Product</h1>
+
+
+<form method="post" action="/product/savechanges">
+    <input type="hidden" name="id" value="@Model.id" />
+    Name: <input type ="text" name="name" value="@Model.name"/> <br/>
+    Description: <input type="text" name="description" value="@Model.description"/> <br/>
+    Price: <input type="text" name="price" value="@Model.price" /> <br/>
+    Inventory: <input type="text" name="inventory" value="@Model.inventory"/> <br/>
+    Category: 
+    
+    
+    <select name="category">
+        @foreach (Category cat in (List<Category>)ViewData["categories"])
+        {
+            <option selected="@(cat.id == Model.category ? "selected" : null)" value="@cat.id">@cat.name</option>
+
+            /* OR
+            if(cat.id == Model.category)
+            {
+                <option selected="selected" value="@cat.id">@cat.name</option>
+            }
+            <option value="@cat.id">@cat.name</option>
+            */
+        }
+    </select>
+    <br/>
+    <input type="submit" value="Save" />
+</form>

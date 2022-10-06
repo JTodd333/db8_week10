@@ -1,0 +1,31 @@
+﻿@model Presentation;
+@{
+    ViewData["Title"] = "EditForm";
+}
+
+<h1>Edit Presentation</h1>
+
+<form method="post" action="/presentation/savechanges">
+    <input type="hidden" name="id" value="@Model.id" />
+    <input type="hidden" name="personid" value="@Model.PersonId" />
+    Member: 
+    <select name="">
+        @foreach (Person per in (List<Person>)ViewData["person"])
+        {
+           
+            if(per.id == Model.PersonId)
+            {
+                <option selected="selected" value="@per.id">@per.FirstName @per.LastName</option>
+            }
+            <option value="@per.id">@per.FirstName @per.LastName</option>
+            
+        }
+    </select> <br/>
+    Presentation Date: <input type="date" name="presentationdate" value="@Model.PresentationDate.ToString("yyyy-MM-dd")"/> <br/>
+    Book Title: <input type="text" name="booktitle" value="@Model.BookTitle" /> <br/>
+    Book Author: <input type="text" name="bookauthor" value="@Model.BookAuthor"/> <br/>
+    Book Genre: <input type="text" name="genre" value="@Model.Genre"/> <br/>
+
+
+    <input type="submit" value="Save" />
+</form>

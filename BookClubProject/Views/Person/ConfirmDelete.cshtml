@@ -1,0 +1,22 @@
+﻿@model Person;
+@{
+    ViewData["Title"] = "ConfirmDelete";
+}
+
+<h1>Are you sure you want to delete this member?</h1>
+
+
+<p style="color:red;">This will delete the member and their scheduled presentations.</p>
+If the member has any scheduled you will see them here: <br />
+@foreach (Presentation pres in (List<Presentation>)ViewData["presentation"])
+    {
+        if (pres.PersonId == Model.id)
+        {
+            <span>@pres.PresentationDate.ToString("MM-dd-yy") @pres.BookTitle - @pres.BookAuthor</span><br/>    
+        }
+    }
+
+<br/><br/>
+Delete @Model.FirstName @Model.LastName?
+<div><a href="/person/delete/@Model.id">Yes, delete</a></div>
+<div><a href="/person">No, cancel</a></div>
